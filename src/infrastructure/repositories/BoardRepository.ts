@@ -21,7 +21,7 @@ export class BoardRepository {
   async findOneById(id: number): Promise<Board> {
     const board = await this.boardRepository.findOne({
       where: { id },
-      relations: ['cards', 'board.userAssigned'],
+      relations: ['cards', 'cards.userAssigned'],
       order: {
         cards: {
           id: 'ASC',
